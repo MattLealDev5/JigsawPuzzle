@@ -8,8 +8,8 @@
   "name":"Obj_PuzzlePiece",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Puzzle Piece",
+    "path":"folders/Objects/Jigsaw Puzzle/Puzzle Piece.yy",
   },
   "parentObjectId":null,
   "persistent":false,

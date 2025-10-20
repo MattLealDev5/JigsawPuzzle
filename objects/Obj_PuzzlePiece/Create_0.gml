@@ -1,2 +1,2 @@
 held = false;
-sides = [0,0,0,0];
+sides = ds_map_create();

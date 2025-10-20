@@ -1,0 +1,5 @@
+** Main Stuff
+- Set up foundation for jigsaw piece functionality
+	- Jigsaw piece hierarchy based on last one picked up
+	- Jigsaw id based on position in puzzle (e.g. [x, y])
+	- Pieces connect based on positional id and move with it

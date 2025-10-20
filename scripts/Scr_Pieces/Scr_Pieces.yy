@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Scr_Pieces",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Puzzle Piece",
+    "path":"folders/Objects/Jigsaw Puzzle/Puzzle Piece.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

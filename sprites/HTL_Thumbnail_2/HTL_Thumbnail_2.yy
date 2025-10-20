@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Puzzle Board",
+    "path":"folders/Objects/Jigsaw Puzzle/Puzzle Board.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,9 +1,14 @@
-function Piece() constructor {
-	function Pickup(){
+enum PieceSides {
+	Up,
+	Right,
+	Down,
+	Left,
+}
+
+function PickupPiece(piece){
 		
-	}
+}
 
-	function Drop(){
-
-	}
+function DropPiece(piece){
+	
 }

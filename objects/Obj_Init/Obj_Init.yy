@@ -8,8 +8,8 @@
   "name":"Obj_Init",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Misc Objects",
+    "path":"folders/Objects/Misc Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
