@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_PuzzlePiece",
+  "%Name":"Obj_JigsawBoard",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_PuzzlePiece",
+  "name":"Obj_JigsawBoard",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,12 +30,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_JigsawPiece",
-    "path":"sprites/Spr_JigsawPiece/Spr_JigsawPiece.yy",
+    "name":"HTL_Thumbnail_2",
+    "path":"sprites/HTL_Thumbnail_2/HTL_Thumbnail_2.yy",
   },
-  "spriteMaskId":{
-    "name":"Spr_JigsawPiece",
-    "path":"sprites/Spr_JigsawPiece/Spr_JigsawPiece.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

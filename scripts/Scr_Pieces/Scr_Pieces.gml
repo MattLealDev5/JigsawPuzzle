@@ -1,7 +1,9 @@
-function Pickup(){
+function Piece() constructor {
+	function Pickup(){
+		
+	}
 
-}
+	function Drop(){
 
-function Drop(){
-
+	}
 }
