@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Puzzle Piece",
-    "path":"folders/Objects/Jigsaw Puzzle/Puzzle Piece.yy",
+    "path":"folders/Assets/Jigsaw Puzzle/Puzzle Piece.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

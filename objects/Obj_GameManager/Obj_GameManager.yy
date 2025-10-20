@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Misc Objects",
-    "path":"folders/Objects/Misc Objects.yy",
+    "path":"folders/Assets/Misc Objects.yy",
   },
   "parentObjectId":null,
   "persistent":true,

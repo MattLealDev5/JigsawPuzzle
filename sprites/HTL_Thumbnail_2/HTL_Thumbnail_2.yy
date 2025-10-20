@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Puzzle Board",
-    "path":"folders/Objects/Jigsaw Puzzle/Puzzle Board.yy",
+    "path":"folders/Assets/Jigsaw Puzzle/Puzzle Board.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

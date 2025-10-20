@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Scr_Pieces",
+  "%Name":"Scr_General",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Scr_Pieces",
+  "name":"Scr_General",
   "parent":{
-    "name":"Puzzle Piece",
-    "path":"folders/Assets/Jigsaw Puzzle/Puzzle Piece.yy",
+    "name":"Assets",
+    "path":"folders/Assets.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
