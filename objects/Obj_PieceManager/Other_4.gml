@@ -8,7 +8,9 @@ for(var i = 0; i < numOfPieces; i++) {
 	
 	
 	// Temp assignment of positional IDs
-	currPiece.posID = [i, 0]
+	var tempID = [i, 0]
+	currPiece.posID = tempID
+	currPiece.sides = DefineSides(tempID)
 	
 }
 setPieceDepths()

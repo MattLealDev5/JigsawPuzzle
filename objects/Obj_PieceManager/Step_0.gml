@@ -22,10 +22,10 @@ if pressedInput {
 
 if releasedInput {
 	// Release the piece and reset values among other things
+	DropPiece(heldPiece)
 	heldPiece = noone
 	pickUpOrigin = [0, 0]
 	mouseOrigin = [0, 0]
-	DropPiece(heldPiece)
 	setPieceDepths()
 }
 
