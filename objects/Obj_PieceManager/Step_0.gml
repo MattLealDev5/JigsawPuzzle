@@ -33,6 +33,7 @@ if heldPiece != noone {
 	// While the piece is being dragged around
 	var newX = pickUpOrigin[0] + (mouse_x-mouseOrigin[0])
 	var newY = pickUpOrigin[1] + (mouse_y-mouseOrigin[1])
-	heldPiece.x = newX
-	heldPiece.y = newY
+	DragPiece(heldPiece, newX, newY)
+	//heldPiece.x = newX
+	//heldPiece.y = newY
 }

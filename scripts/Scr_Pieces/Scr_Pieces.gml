@@ -5,6 +5,11 @@ enum PieceSides {
 	Left,
 }
 
+function DragPiece(piece, dragX, dragY) {
+	piece.x = dragX
+	piece.y = dragY
+}
+
 function PickupPiece(piece){
 	piece.holding = true
 	show_debug_message(ds_map_keys_to_array(piece.sides))
@@ -18,10 +23,10 @@ function DropPiece(piece){
 	var piecesNear = ds_list_create()
 	var pieceSize = 60
 	var pos = [
-		[0, -1],
-		[1, 0],
-		[0, 1],
-		[-1, 0]]
+		[0, -1], // Up
+		[1, 0], // Right
+		[0, 1], // Down
+		[-1, 0]] // Left
 	
 	var sides = ds_map_keys_to_array(piece.sides)
 	var openings = ds_map_values_to_array(piece.sides)
@@ -31,7 +36,7 @@ function DropPiece(piece){
 		// Checks if the side is taken
 		if openings[i] != noone { continue }
 		
-		// Getting position to check and all pieces there
+		// Getting side to check and all pieces there
 		var sideX = piece.x+pos[sides[i]][0]*pieceSize
 		var sideY = piece.y+pos[sides[i]][1]*pieceSize
 		show_debug_message($"[{piece.x}, {piece.y}] -> [{sideX}, {sideY}]")
@@ -39,6 +44,7 @@ function DropPiece(piece){
 		show_debug_message(size)
 		
 		// Iterate through each piece found and see if they fit
+		var foundFit = false
 		for (var j = 0; j < size; j++;) {
 			var aX = piece.posID[0]+pos[sides[i]][0]
 			var bX = piecesNear[| j].posID[0]
@@ -47,15 +53,25 @@ function DropPiece(piece){
 			show_debug_message($"[{aX}, {aY}]")
 			show_debug_message($"[{bX}, {bY}]")
 	        if aX == bX && aY == bY {
-				   // Check if code is right or something
+				   // If a conection is found there they connect
 					show_debug_message(":D")
+					foundFit = true
+					ConnectPieces(piece, piecesNear[| j], sides[i])
+					break
 			}
 	    }
+		// End early if a connection is found so no wacky shit happens
+		if foundFit { break }
 		
 	}
 	
 	ds_list_destroy(piecesNear)
 	piecesNear = -1
+}
+
+function ConnectPieces(pieceA, pieceB, side) {
+	pieceA.sides[? side] = pieceB
+	pieceB.sides[? (side+2)%4] = pieceA
 }
 
 function DefineSides(posID){
