@@ -5,9 +5,29 @@ enum PieceSides {
 	Left,
 }
 
-function DragPiece(piece, dragX, dragY) {
+function DragPiece(piece, dragX, dragY, passed = []) {
+	// Move piece
 	piece.x = dragX
 	piece.y = dragY
+	
+	// Recursion shit to move every piece connected
+	var pos = [
+		[0, -1], // Up
+		[1, 0], // Right
+		[0, 1], // Down
+		[-1, 0]] // Left
+	var pieceSize = 60
+	
+	var sides = ds_map_keys_to_array(piece.sides)
+	var openings = ds_map_values_to_array(piece.sides)
+	for(var i = 0; i < array_length(sides); i++) {
+		var nextPiece = piece.sides[? sides[i]]
+		if nextPiece != noone && !array_contains(passed, nextPiece) {
+			array_push(passed, nextPiece)
+			DragPiece(nextPiece, dragX+pos[sides[i]][0]*pieceSize, 
+								 dragY+pos[sides[i]][1]*pieceSize, passed)
+		}
+	}
 }
 
 function PickupPiece(piece){
