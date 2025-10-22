@@ -90,8 +90,19 @@ function DropPiece(piece){
 }
 
 function ConnectPieces(pieceA, pieceB, side) {
+	var opposite = (side+2)%4
 	pieceA.sides[? side] = pieceB
 	pieceB.sides[? (side+2)%4] = pieceA
+	
+	var pos = [
+		[0, -1], // Up
+		[1, 0], // Right
+		[0, 1], // Down
+		[-1, 0]] // Left
+	var pieceSize = 60
+	
+	pieceA.x = pieceB.x + pos[opposite][0]*pieceSize
+	pieceA.y = pieceB.y + pos[opposite][1]*pieceSize
 }
 
 function DefineSides(posID){
