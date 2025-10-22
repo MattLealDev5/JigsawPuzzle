@@ -2,7 +2,8 @@
 - Set up foundation for jigsaw piece functionality
 	✓ Pieces can be moved around
 	✓ Jigsaw piece hierarchy based on last one picked up
-	- Pieces connect based on positional id and move with it
+	✓ Pieces connect based on positional id and move with it
+		- Let pieces unpicked from cluster still connect to other pieces if no other connection was made
 	- Jigsaw id based on position in board (e.g. [x, y])
 
 
