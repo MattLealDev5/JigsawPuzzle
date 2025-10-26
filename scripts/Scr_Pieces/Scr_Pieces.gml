@@ -45,6 +45,10 @@ function PickupPiece(piece){
 	show_debug_message(ds_map_values_to_array(piece.sides))
 }
 
+function CheckForConnetion(piece) {
+	
+}
+
 // I fucking hate this code it's so god damn long
 function DropPiece(piece){
 	piece.holding = false
@@ -65,12 +69,13 @@ function DropPiece(piece){
 		var sideX = piece.x+side[0]*pieceSize
 		var sideY = piece.y+side[1]*pieceSize
 		show_debug_message($"[{piece.x}, {piece.y}] -> [{sideX}, {sideY}]")
-		var size = instance_position_list(sideX, sideY, Obj_PuzzlePiece, piecesNear, false)
+		var size = instance_position_list(sideX, sideY, Obj_PuzzlePiece, piecesNear, true)
 		show_debug_message(size)
 		
-		// Iterate through each piece found and see if they fit
+		// Iterate through each nearby piece found and see if they fit
 		var foundFit = false
 		for (var j = 0; j < size; j++;) {
+			// a is the held piece's id incremented to check if they match the id of b
 			var aX = piece.posID[0]+side[0]
 			var bX = piecesNear[| j].posID[0]
 			var aY = piece.posID[1]+side[1]
@@ -86,7 +91,11 @@ function DropPiece(piece){
 			}
 	    }
 		// End early if a connection is found so no wacky shit happens
-		if foundFit { break }
+		if foundFit {
+			//ds_list_destroy(piecesNear)
+			//piecesNear = -1
+			break
+		}
 		
 	}
 	

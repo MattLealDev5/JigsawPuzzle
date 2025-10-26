@@ -30,6 +30,7 @@
   "name":"JigsawPuzzle",
   "resources":[
     {"id":{"name":"ToDoList","path":"notes/ToDoList/ToDoList.yy",},},
+    {"id":{"name":"Obj_Debug","path":"objects/Obj_Debug/Obj_Debug.yy",},},
     {"id":{"name":"Obj_GameManager","path":"objects/Obj_GameManager/Obj_GameManager.yy",},},
     {"id":{"name":"Obj_Init","path":"objects/Obj_Init/Obj_Init.yy",},},
     {"id":{"name":"Obj_JigsawBoard","path":"objects/Obj_JigsawBoard/Obj_JigsawBoard.yy",},},
