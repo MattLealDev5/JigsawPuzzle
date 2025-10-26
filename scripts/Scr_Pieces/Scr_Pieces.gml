@@ -14,13 +14,17 @@ function GetSideNormal(side) {
 	return pos[side]
 }
 
+function GetPieceSize() {
+	return Obj_PieceManager.pieceSize
+}
+
 function DragPiece(piece, dragX, dragY, passed = []) {
 	// Move piece
 	piece.x = dragX
 	piece.y = dragY
 	
 	// Recursion shit to move every piece connected
-	var pieceSize = 60
+	var pieceSize = GetPieceSize()
 	
 	var sides = ds_map_keys_to_array(piece.sides)
 	var openings = ds_map_values_to_array(piece.sides)
@@ -46,7 +50,7 @@ function DropPiece(piece){
 	piece.holding = false
 	
 	var piecesNear = ds_list_create()
-	var pieceSize = 60
+	var pieceSize = GetPieceSize()
 	
 	var sides = ds_map_keys_to_array(piece.sides)
 	var openings = ds_map_values_to_array(piece.sides)
@@ -94,7 +98,7 @@ function ConnectPieces(pieceA, pieceB, sideDir) {
 	var opposite = (sideDir+2)%4
 	
 	// Snap pieceA to pieceB
-	var pieceSize = 60
+	var pieceSize = GetPieceSize()
 	var oppSide = GetSideNormal(opposite)
 	
 	var snapX = pieceB.x + oppSide[0]*pieceSize
