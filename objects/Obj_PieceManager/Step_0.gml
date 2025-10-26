@@ -7,8 +7,8 @@ if pressedInput {
 		if position_meeting(mouse_x, mouse_y, pieceList[i]) {
 			// If found get heldPiece and adjust pieceList
 			heldPiece = pieceList[i]
-			array_delete(pieceList, i, 1)
-			array_insert(pieceList, 0, heldPiece)
+			MovePieceToTop(pieceList, i)
+			show_debug_message(pieceList)
 			
 			// Stuff for when the player starts dragging it
 			pickUpOrigin = [heldPiece.x, heldPiece.y]

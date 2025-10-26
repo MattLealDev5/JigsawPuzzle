@@ -23,7 +23,6 @@ function DragPiece(piece, dragX, dragY, passed = []) {
 	piece.x = dragX
 	piece.y = dragY
 	
-	// Recursion shit to move every piece connected
 	var pieceSize = GetPieceSize()
 	
 	var sides = ds_map_keys_to_array(piece.sides)
@@ -33,6 +32,7 @@ function DragPiece(piece, dragX, dragY, passed = []) {
 		if nextPiece != noone && !array_contains(passed, nextPiece) {
 			var side = GetSideNormal(sides[i])
 			array_push(passed, nextPiece)
+			// Recursion shit to move every piece connected
 			DragPiece(nextPiece, dragX+side[0]*pieceSize, 
 								 dragY+side[1]*pieceSize, passed)
 		}
@@ -43,6 +43,12 @@ function PickupPiece(piece){
 	piece.holding = true
 	show_debug_message(ds_map_keys_to_array(piece.sides))
 	show_debug_message(ds_map_values_to_array(piece.sides))
+}
+
+function MovePieceToTop(pL, i) {
+	var movePiece = pL[i]
+	array_delete(pL, i, 1)
+	array_insert(pL, 0, movePiece)
 }
 
 function CheckForConnetion(piece) {
@@ -92,8 +98,6 @@ function DropPiece(piece){
 	    }
 		// End early if a connection is found so no wacky shit happens
 		if foundFit {
-			//ds_list_destroy(piecesNear)
-			//piecesNear = -1
 			break
 		}
 		
@@ -119,6 +123,39 @@ function ConnectPieces(pieceA, pieceB, sideDir) {
 	// Make connection internally
 	pieceA.sides[? sideDir] = pieceB
 	pieceB.sides[? (sideDir+2)%4] = pieceA
+	
+	// Connect every other piece associated with this piece and their connector
+	EnsureAllConnected(pieceA)
+}
+
+function EnsureAllConnected(piece, passed = []) {
+	array_push(passed, piece)
+	var sides = ds_map_keys_to_array(piece.sides)
+	var openings = ds_map_values_to_array(piece.sides)
+	var numOfSides = array_length(sides)
+	
+	for(var i = 0; i < numOfSides; i++) {
+		// If the opening is already made then check if it's in passed
+		if openings[i] != noone {
+			// If it's not in passed then recursive it, otherwise skip
+			if !array_contains(passed, openings[i]) {
+				EnsureAllConnected(openings[i], passed);
+			}
+			continue
+		}
+		
+		// Find piece by iterating through passed pieces
+		var passedSize = array_length(passed)
+		var side = GetSideNormal(sides[i])
+		var nearPiece = noone
+		for(var j = 0; j < passedSize; j++) {
+			// If this piece is next to it via posID then connect
+			if piece.posID[0]+side[0] == passed[j].posID[0] &&
+			   piece.posID[1]+side[1] == passed[j].posID[1] {
+				   ConnectPieces(piece, passed[j], sides[i])
+			   }
+		}
+	}
 }
 
 function DefineSides(posID){
