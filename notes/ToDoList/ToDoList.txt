@@ -3,8 +3,9 @@
 	✓ Pieces can be moved around
 	✓ Jigsaw piece hierarchy based on last one picked up
 	✓ Pieces connect based on positional id and move with it
+		✓ Make sure a piece cluster is all properly connected when it makes a connection
 		- Let pieces unpicked from cluster still connect to other pieces if no other connection was made
 	- Jigsaw id based on position in board (e.g. [x, y])
-
+- Map a section of the board image to each piece
 
 ** Completed Tasks
